@@ -2,7 +2,7 @@ services:
   - type: web
     name: birthday-wisher
     env: php
-    startCommand: "php -S 0.0.0.0:10000 -t ."
+    startCommand: "php -S 0.0.0.0:$PORT -t ."
     envVars:
       - key: DATABASE_URL
         fromDatabase:
