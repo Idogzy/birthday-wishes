@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #fce4ec, #f3e5f5, #e8eaf6);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+.main-card h1 {
+    text-align: center;
+    color: #e91e63;
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-group input {
+    padding: 14px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #e91e63;
+}
+
+.form-group button {
+    padding: 14px;
+    background: linear-gradient(135deg, #e91e63, #9c27b0);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.form-group button:hover:not(:disabled) {
+    transform: scale(1.02);
+    box-shadow: 0 5px 20px rgba(233, 30, 99, 0.3);
+}
+
+.form-group button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#messageContainer {
+    margin-top: 20px;
+}
+
+#messageBox {
+    background: linear-gradient(135deg, #fff8e1, #fce4ec);
+    border: 2px solid #f06292;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#wishMessage {
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+    line-height: 1.6;
+}
+
+#savedBadge {
+    display: none;
+    text-align: center;
+    color: #2e7d32;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+#savedBadge.show {
+    display: block;
+}
+
+.wishes-card h2 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+#wishesList {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #e91e63;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none;
+}
+
+.loading-spinner.active {
+    display: block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.wish-item {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-left: 4px solid #e91e63;
+    animation: slideUp 0.3s ease;
+}
+
+.wish-item .wish-name {
+    font-weight: 600;
+    color: #e91e63;
+    font-size: 1.05rem;
+}
+
+.wish-item .wish-birthday {
+    color: #888;
+    font-size: 0.85rem;
+    margin-left: 8px;
+}
+
+.wish-item .wish-text {
+    color: #444;
+    margin-top: 6px;
+    font-size: 0.95rem;
+}
+
+.wish-item .wish-date {
+    color: #aaa;
+    font-size: 0.75rem;
+    margin-top: 6px;
+}
+
+.loading-text, .empty-text {
+    text-align: center;
+    color: #999;
+    padding: 20px 0;
+}
+
+#wishesList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#wishesList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#wishesList::-webkit-scrollbar-thumb {
+    background: #e91e63;
+    border-radius: 10px;
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 20px;
+    }
+    
+    .main-card h1 {
+        font-size: 1.8rem;
+    }
+    
+    #wishMessage {
+        font-size: 1rem;
+    }
+}
